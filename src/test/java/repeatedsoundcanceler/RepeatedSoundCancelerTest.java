@@ -1,9 +1,9 @@
-package com.example;
+package repeatedsoundcanceler;
 
 import net.runelite.client.RuneLite;
 import net.runelite.client.externalplugins.ExternalPluginManager;
 
-public class ExamplePluginTest
+public class RepeatedSoundCancelerTest
 {
 	public static void main(String[] args) throws Exception
 	{
