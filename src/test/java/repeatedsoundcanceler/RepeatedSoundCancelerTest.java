@@ -7,7 +7,7 @@ public class RepeatedSoundCancelerTest
 {
 	public static void main(String[] args) throws Exception
 	{
-		ExternalPluginManager.loadBuiltin(ExamplePlugin.class);
+		ExternalPluginManager.loadBuiltin(RepeatedSoundCancelerPlugin.class);
 		RuneLite.main(args);
 	}
 }
