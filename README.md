@@ -1,18 +1,23 @@
 # Repeated Sound Canceler
-When multiple area sounds (like ice barrage hitting a clump of enemies) 
+## UPDATE LIST
+### V1.1
+* Refactored code to work with both regular sfx and area sfx. Chinning maniacal monkeys should be safe for your ears
+now.
+
+## Description
+When multiple sounds (like ice barrage hitting a clump of enemies) 
 play on the same tick, they stack up and play at the same time. When this happens, it produces
 a sound effect that is much louder than normal. This plugin will check if any area 
 sounds are played multiple times on the same tick and filter out all but one instance 
 of that sound to keep volume levels more consistent.
 
-Note: as of now only area sounds are supported. If there is a desire and reasonable application for
-it, I might add ambient sounds or regular sounds. The biggest offenders of this issue are usually
-area sounds.
+NOTE: Ambient sound effects are not currently filtered. As far as I know, they are not really affected by this 
+problem, but they could be added if there is a valid use case.
 
 ## Features
 
 ### Whitelist Mode
-All area sounds will be filtered except those listed in the whitelist. Use this if you generally
+All sounds will be filtered except those listed in the whitelist. Use this if you generally
 want to filter sounds except for a couple.
 
 Add sound IDs to the whitelist separated by a comma. Take care to get the proper area sound that
