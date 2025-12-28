@@ -1,5 +1,7 @@
 # Repeated Sound Canceler
 ## UPDATE LIST
+### V1.2
+* Refactor based on maintainer suggestions. No feature changes.
 ### V1.1
 * Refactored code to work with both regular sfx and area sfx. Chinning maniacal monkeys should be safe for your ears
 now.
