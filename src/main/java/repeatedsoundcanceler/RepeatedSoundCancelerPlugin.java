@@ -29,8 +29,7 @@ public class RepeatedSoundCancelerPlugin extends Plugin
 	private RepeatedSoundCancelerConfig config;
 
     private int tickToCheck;
-    private Set<Integer> idsSeenThisTick;
-    private Set<Integer> blacklistIDs, whitelistIDs;
+    private Set<Integer> blacklistIDs, whitelistIDs, idsSeenThisTick;
 
 	@Override
 	protected void startUp() throws Exception
