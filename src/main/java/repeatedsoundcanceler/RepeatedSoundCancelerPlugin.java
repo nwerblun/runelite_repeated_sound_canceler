@@ -13,11 +13,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import org.apache.commons.lang3.math.NumberUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-import java.util.logging.Filter;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -33,14 +29,14 @@ public class RepeatedSoundCancelerPlugin extends Plugin
 	private RepeatedSoundCancelerConfig config;
 
     private int tickToCheck;
-    private List<Integer> idsSeenThisTick;
+    private Set<Integer> idsSeenThisTick;
     private Set<Integer> blacklistIDs, whitelistIDs;
 
 	@Override
 	protected void startUp() throws Exception
 	{
         tickToCheck = 0;
-        idsSeenThisTick = new ArrayList<Integer>();
+        idsSeenThisTick = new HashSet<Integer>();
         blacklistIDs = configListToSet(config.getBlacklist());
         whitelistIDs = configListToSet(config.getWhitelist());
     }
@@ -53,37 +49,15 @@ public class RepeatedSoundCancelerPlugin extends Plugin
 
     @Subscribe
     public void onAreaSoundEffectPlayed(AreaSoundEffectPlayed areaSoundEffectPlayed) {
-        // Wrap it in an interface for function reuse
-        FilterableSoundEffect played = new FilterableSoundEffect() {
-            @Override
-            public void consume() {
-                areaSoundEffectPlayed.consume();
-            }
-
-            @Override
-            public int getSoundId() {
-                return areaSoundEffectPlayed.getSoundId();
-            }
-        };
-
+        // Wrap it in an interfaced class for function reuse
+        FilterableSoundEffect played = new FilterableAreaSoundEffectPlayed(areaSoundEffectPlayed);
         filterDupeSounds(played);
     }
 
     @Subscribe
     public void onSoundEffectPlayed(SoundEffectPlayed soundEffectPlayed) {
-        // Wrap in interface for function reuse
-        FilterableSoundEffect played = new FilterableSoundEffect() {
-            @Override
-            public void consume() {
-                soundEffectPlayed.consume();
-            }
-
-            @Override
-            public int getSoundId() {
-                return soundEffectPlayed.getSoundId();
-            }
-        };
-
+        // Wrap in interfaced class for function reuse
+        FilterableSoundEffect played = new FilterableSoundEffectPlayed(soundEffectPlayed);
         filterDupeSounds(played);
     }
 
@@ -118,9 +92,8 @@ public class RepeatedSoundCancelerPlugin extends Plugin
         }
 
         if (filter) {
-            if (!idsSeenThisTick.contains(sound.getSoundId())) {
-                idsSeenThisTick.add(sound.getSoundId());
-            } else {
+            // add returns false if item is already in the set.
+            if (!idsSeenThisTick.add(sound.getSoundId())) {
                 sound.consume();
             }
         }
