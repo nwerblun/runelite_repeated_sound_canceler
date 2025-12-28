@@ -19,8 +19,8 @@ public interface RepeatedSoundCancelerConfig extends Config
         position = 2,
 		keyName = "mode",
 		name = "Filtering Mode",
-		description = "How to cancel repeated sounds.\nWhitelist mode: All area sounds are filtered except those" +
-                "in the whitelist.\nBlacklist mode: Only area sounds in the blacklist are filtered, all other sounds" +
+		description = "How to cancel repeated sounds.\nWhitelist mode: All sounds are filtered except those" +
+                "in the whitelist.\nBlacklist mode: Only sounds in the blacklist are filtered, all other sounds" +
                 "are treated normally.",
         section = generalSettingsSection
 	)
