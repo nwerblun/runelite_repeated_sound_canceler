@@ -3,6 +3,7 @@ package repeatedsoundcanceler;
 import net.runelite.api.events.AreaSoundEffectPlayed;
 
 public class FilterableAreaSoundEffectPlayed implements FilterableSoundEffect{
+    
     private final AreaSoundEffectPlayed sfx;
 
     public FilterableAreaSoundEffectPlayed(AreaSoundEffectPlayed areaSoundEffectPlayed) {
