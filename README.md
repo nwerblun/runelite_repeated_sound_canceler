@@ -9,8 +9,7 @@ now.
 ## Description
 When multiple sounds (like ice barrage hitting a clump of enemies) 
 play on the same tick, they stack up and play at the same time. When this happens, it produces
-a sound effect that is much louder than normal. This plugin will check if any area 
-sounds are played multiple times on the same tick and filter out all but one instance 
+a sound effect that is much louder than normal. This plugin will check if any sound effects are played multiple times on the same tick and filter out all but one instance 
 of that sound to keep volume levels more consistent.
 
 NOTE: Ambient sound effects are not currently filtered. As far as I know, they are not really affected by this 
