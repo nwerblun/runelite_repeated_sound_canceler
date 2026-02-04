@@ -18,7 +18,7 @@ problem, but they could be added if there is a valid use case.
 ## Features
 
 ### Whitelist Mode
-All sounds will be filtered except those listed in the whitelist. Use this if you generally
+All sound effects will be filtered except those listed in the whitelist. Use this if you generally
 want to filter sounds except for a couple.
 
 Add sound IDs to the whitelist separated by a comma. Take care to get the proper area sound that
@@ -27,7 +27,7 @@ sound IDs [here](https://oldschool.runescape.wiki/w/List_of_sound_IDs), or make 
 [visual sounds plugin on RuneLite](https://runelite.net/plugin-hub/show/visual-sounds)
 
 ### Blacklist Mode
-No area sounds will be filtered, except those in the blacklist. Use this if you want a mostly
+No sound effects will be filtered, except those in the blacklist. Use this if you want a mostly
 standard experience but just want a couple annoying sounds to be less loud at times.
 
 Add sound IDs to the blacklist separated by a comma. See the above links for help in finding IDs.
